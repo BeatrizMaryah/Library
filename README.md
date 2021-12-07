@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png" min-width="400px" max-width="400px" width="400px" align="right" alt="Computador iuriCode">
 
 <h3>
-  Essa é uma pequena Rest API com Spring de uma livraria. <br>
+  Essa é uma pequena Rest API com Spring de uma biblioteca. <br>
   A construção dela conta com:  <br>
 </h3>
 <p align="left"> 
