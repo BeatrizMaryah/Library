@@ -1,6 +1,6 @@
-package br.com.senior.Library.book;
+package br.com.task.Library.book;
 
-import br.com.senior.Library.exception.BookNotFoundException;
+import br.com.task.Library.exception.BookNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

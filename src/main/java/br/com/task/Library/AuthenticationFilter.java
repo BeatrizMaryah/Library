@@ -1,6 +1,6 @@
-package br.com.senior.Library;
+package br.com.task.Library;
 
-import br.com.senior.Library.user.UserServiceProd;
+import br.com.task.Library.user.UserServiceProd;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.annotation.Order;

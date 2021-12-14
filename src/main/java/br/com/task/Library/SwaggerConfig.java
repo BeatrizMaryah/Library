@@ -1,4 +1,4 @@
-package br.com.senior.Library;
+package br.com.task.Library;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

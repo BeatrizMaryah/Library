@@ -1,6 +1,5 @@
-package br.com.senior.Library.book;
+package br.com.task.Library.book;
 
-import br.com.senior.Library.book.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

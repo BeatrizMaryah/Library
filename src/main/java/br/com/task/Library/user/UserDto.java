@@ -1,4 +1,4 @@
-package br.com.senior.Library.user;
+package br.com.task.Library.user;
 
 public class UserDto {
 

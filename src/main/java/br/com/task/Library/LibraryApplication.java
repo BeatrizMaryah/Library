@@ -1,4 +1,4 @@
-package br.com.senior.Library;
+package br.com.task.Library;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

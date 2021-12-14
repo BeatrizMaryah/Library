@@ -1,6 +1,6 @@
-package br.com.senior.Library.user;
+package br.com.task.Library.user;
 
-import br.com.senior.Library.exception.LoginNotFoundException;
+import br.com.task.Library.exception.LoginNotFoundException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -12,10 +12,10 @@ import java.util.List;
 @Service
 public class UserServiceProd implements UserService{
 
-    @Value("${br.com.senior.Library.user}")
+    @Value("${br.com.task.Library.user}")
     private String user;
 
-    @Value("${br.com.senior.Library.password}")
+    @Value("${br.com.task.Library.password}")
     private String password;
 
     public static final List<String> tokens = new ArrayList<>();

@@ -1,4 +1,4 @@
-package br.com.senior.Library.user;
+package br.com.task.Library.user;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
@@ -11,10 +11,10 @@ import java.util.List;
 @Service
 public class UserServiceDev implements UserService {
 
-    @Value("${br.com.senior.Library.user}")
+    @Value("${br.com.task.Library.user}")
     private String user;
 
-    @Value("${br.com.senior.Library.password}")
+    @Value("${br.com.task.Library.password}")
     private String password;
 
     public static final List<String> tokens = new ArrayList<>();

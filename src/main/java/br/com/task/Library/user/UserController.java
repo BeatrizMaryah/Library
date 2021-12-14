@@ -1,6 +1,6 @@
-package br.com.senior.Library.user;
+package br.com.task.Library.user;
 
-import br.com.senior.Library.exception.WrongLoginException;
+import br.com.task.Library.exception.WrongLoginException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

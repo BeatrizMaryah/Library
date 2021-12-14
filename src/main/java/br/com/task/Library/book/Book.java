@@ -1,4 +1,4 @@
-package br.com.senior.Library.book;
+package br.com.task.Library.book;
 
 import javax.persistence.*;
 import java.time.LocalDate;

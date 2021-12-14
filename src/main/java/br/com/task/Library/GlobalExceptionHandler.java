@@ -1,8 +1,8 @@
-package br.com.senior.Library;
+package br.com.task.Library;
 
-import br.com.senior.Library.exception.BookNotFoundException;
-import br.com.senior.Library.exception.LoginNotFoundException;
-import br.com.senior.Library.exception.WrongLoginException;
+import br.com.task.Library.exception.BookNotFoundException;
+import br.com.task.Library.exception.LoginNotFoundException;
+import br.com.task.Library.exception.WrongLoginException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

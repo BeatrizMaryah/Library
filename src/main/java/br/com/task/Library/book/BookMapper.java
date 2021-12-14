@@ -1,7 +1,5 @@
-package br.com.senior.Library.book;
+package br.com.task.Library.book;
 
-import br.com.senior.Library.book.BookDto;
-import br.com.senior.Library.book.Book;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package br.com.senior.Library.book;
+package br.com.task.Library.book;
 
 public class BookDto {
 
