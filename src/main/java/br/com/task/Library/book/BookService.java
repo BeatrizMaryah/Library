@@ -86,4 +86,28 @@ public class BookService {
         }
         throw new BookNotFoundException();
     }
+
+    public ResponseEntity<BookDto> updateBook(BookDto newbookDto, Long id){
+        if(!newbookDto.name.isEmpty() && !newbookDto.author.isEmpty()){
+            Book book = bookRepository.getById(id);
+            book.setName(newbookDto.name);
+            book.setAuthor(newbookDto.author);
+            book.setCost(newbookDto.cost);
+
+            Book bookSaved = bookRepository.save(book);
+            BookDto dto = bookMapper.toDto(bookSaved);
+            return new ResponseEntity<>(dto, HttpStatus.OK);
+        } else{
+            throw new BookNotFoundException();
+        }
+    }
+
+    public void deletBook(BookDto bookDto){
+        if(!bookDto.name.isEmpty() && !bookDto.author.isEmpty()){
+            Book bookDelet = bookMapper.toEntity(bookDto);
+            bookRepository.delete(bookDelet);
+        } else{
+            throw new BookNotFoundException();
+        }
+    }
 }
