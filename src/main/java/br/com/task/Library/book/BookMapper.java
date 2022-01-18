@@ -1,6 +1,10 @@
 package br.com.task.Library.book;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import br.com.task.Library.library.Library;
+import br.com.task.Library.library.LibraryRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,13 +12,17 @@ import java.util.List;
 @Service
 public class BookMapper {
 
+	@Autowired
+	private LibraryRepository libraryRepository;
+	
     public BookDto toDto (Book book){
         final BookDto dto = new BookDto();
         dto.id = book.getId();
         dto.name = book.getName();
         dto.author = book.getAuthor();
         dto.cost = book.getCost();
-
+        dto.isBorrowed = book.getIsBorrowed();
+        dto.idLibrary = book.getLibrary().getId();
         return dto;
     }
 
@@ -32,7 +40,11 @@ public class BookMapper {
         book.setName(dto.name);
         book.setAuthor(dto.author);
         book.setCost(dto.cost);
-
+        book.setIsBorrowed(dto.isBorrowed);
+        
+        Library library = libraryRepository.getById(dto.idLibrary);
+        book.setLibrary(library);
+        
         return book;
     }
 }

@@ -6,6 +6,6 @@ public class BookDto {
     public String name;
     public String author;
     public Float cost;
-
-
+    public Boolean isBorrowed;
+    public Long idLibrary;
 }

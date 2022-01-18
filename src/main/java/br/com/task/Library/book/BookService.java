@@ -1,6 +1,6 @@
 package br.com.task.Library.book;
 
-import br.com.task.Library.exception.BookNotFoundException;
+import br.com.task.Library.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +26,7 @@ public class BookService {
 
             return new ResponseEntity<>(dto, HttpStatus.CREATED);
         } else {
-            throw new BookNotFoundException();
+            throw new NotFoundException();
         }
     }
 
@@ -84,7 +84,7 @@ public class BookService {
             BookDto dto = bookMapper.toDto(book);
             return new ResponseEntity<>(dto, HttpStatus.OK);
         }
-        throw new BookNotFoundException();
+        throw new NotFoundException();
     }
 
     public ResponseEntity<BookDto> updateBook(BookDto newbookDto, Long id){
@@ -98,7 +98,7 @@ public class BookService {
             BookDto dto = bookMapper.toDto(bookSaved);
             return new ResponseEntity<>(dto, HttpStatus.OK);
         } else{
-            throw new BookNotFoundException();
+            throw new NotFoundException();
         }
     }
 
@@ -107,7 +107,7 @@ public class BookService {
             Book bookDelet = bookMapper.toEntity(bookDto);
             bookRepository.delete(bookDelet);
         } else{
-            throw new BookNotFoundException();
+            throw new NotFoundException();
         }
     }
 }

@@ -1,9 +1,13 @@
 package br.com.task.Library.book;
 
 import javax.persistence.*;
+
+import br.com.task.Library.library.Library;
+
 import java.time.LocalDate;
 
 @Entity
+@Table(name="book") 
 public class Book {
 
     @Id
@@ -24,6 +28,12 @@ public class Book {
 
     @Column
     private String publisher;
+    
+    @Column
+    private Boolean isBorrowed;
+    
+    @ManyToOne
+    private Library library;
 
     public Long getId() {
         return id;
@@ -72,4 +82,18 @@ public class Book {
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
+
+    public Boolean getIsBorrowed() {
+		return isBorrowed;
+	}
+    public void setIsBorrowed(Boolean isBorrowed) {
+		this.isBorrowed = isBorrowed;
+	}
+
+    public Library getLibrary() {
+		return library;
+	}
+    public void setLibrary(Library library) {
+		this.library = library;
+	}
 }
