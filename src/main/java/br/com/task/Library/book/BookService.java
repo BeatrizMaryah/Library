@@ -1,6 +1,6 @@
 package br.com.task.Library.book;
 
-import br.com.task.Library.exception.BookNotFoundException;
+import br.com.task.Library.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,24 +26,29 @@ public class BookService {
 
             return new ResponseEntity<>(dto, HttpStatus.CREATED);
         } else {
-            throw new BookNotFoundException();
+            throw new NotFoundException();
         }
     }
-
-    public ResponseEntity<List<BookDto>> getBooks (String name, String author){
-        List<Book> books = bookRepository.findAll();
-
-        if(name == null && author == null){
-            return ResponseEntity.ok().body(bookMapper.toDto(books));
-        } else if (name != null && author != null) {
-            return getBooksSameAuthorAndName(books, name, author);
-        } else if (name != null && author == null) {
-            return getBooksSameName(books, name);
-        } else if (author != null && name == null) {
-            return getBooksSameAuthor(books, author);
-        }
-        return new ResponseEntity<>(bookMapper.toDto(books), HttpStatus.OK);
+    
+    public ResponseEntity<List<BookDto>> getBooks (){
+    	List<Book> books = bookRepository.findAll();
+    	return ResponseEntity.ok().body(bookMapper.toDto(books));
     }
+
+//    public ResponseEntity<List<BookDto>> getBooks (String name, String author){
+//        List<Book> books = bookRepository.findAll();
+//
+//        if(name == null && author == null){
+//            return ResponseEntity.ok().body(bookMapper.toDto(books));
+//        } else if (name != null && author != null) {
+//            return getBooksSameAuthorAndName(books, name, author);
+//        } else if (name != null && author == null) {
+//            return getBooksSameName(books, name);
+//        } else if (author != null && name == null) {
+//            return getBooksSameAuthor(books, author);
+//        }
+//        return new ResponseEntity<>(bookMapper.toDto(books), HttpStatus.OK);
+//    }
 
     public ResponseEntity<List<BookDto>> getBooksSameAuthorAndName(List<Book> books, String name, String author){
         List<Book> booksSameAuthorAndName = new ArrayList<>();
@@ -84,7 +89,7 @@ public class BookService {
             BookDto dto = bookMapper.toDto(book);
             return new ResponseEntity<>(dto, HttpStatus.OK);
         }
-        throw new BookNotFoundException();
+        throw new NotFoundException();
     }
 
     public ResponseEntity<BookDto> updateBook(BookDto newbookDto, Long id){
@@ -98,16 +103,12 @@ public class BookService {
             BookDto dto = bookMapper.toDto(bookSaved);
             return new ResponseEntity<>(dto, HttpStatus.OK);
         } else{
-            throw new BookNotFoundException();
+            throw new NotFoundException();
         }
     }
 
-    public void deletBook(BookDto bookDto){
-        if(!bookDto.name.isEmpty() && !bookDto.author.isEmpty()){
-            Book bookDelet = bookMapper.toEntity(bookDto);
+    public void deletBook(Long id){
+            Book bookDelet = bookRepository.getById(id);
             bookRepository.delete(bookDelet);
-        } else{
-            throw new BookNotFoundException();
-        }
     }
 }
