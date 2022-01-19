@@ -6,6 +6,8 @@ public class BookDto {
     public String name;
     public String author;
     public Float cost;
+//    public LocalDate yearEdition;
+//    public String publisher;
     public Boolean isBorrowed;
     public Long idLibrary;
 }
