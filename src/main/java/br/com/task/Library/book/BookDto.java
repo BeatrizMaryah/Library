@@ -4,6 +4,7 @@ public class BookDto {
 
     public Long id;
     public String name;
+    public String description;
     public String author;
     public Float cost;
 //    public LocalDate yearEdition;

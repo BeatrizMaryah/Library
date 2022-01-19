@@ -19,6 +19,7 @@ public class BookMapper {
         final BookDto dto = new BookDto();
         dto.id = book.getId();
         dto.name = book.getName();
+        dto.description = book.getDescription();
         dto.author = book.getAuthor();
         dto.cost = book.getCost();
 //        dto.yearEdition = book.getYearEdition();
@@ -40,6 +41,7 @@ public class BookMapper {
         final Book book = new Book();
         book.setId(dto.id);
         book.setName(dto.name);
+        book.setDescription(dto.description);
         book.setAuthor(dto.author);
         book.setCost(dto.cost);
 //        book.setYearEdition(dto.yearEdition);

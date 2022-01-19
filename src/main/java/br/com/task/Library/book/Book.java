@@ -16,6 +16,9 @@ public class Book {
 
     @Column
     private String name;
+    
+    @Column
+    private String description;
 
     @Column()
     private String author;
@@ -95,5 +98,13 @@ public class Book {
 	}
     public void setLibrary(Library library) {
 		this.library = library;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }
