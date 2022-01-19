@@ -2,8 +2,6 @@ package br.com.task.Library.book;
 
 import javax.persistence.*;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import br.com.task.Library.library.Library;
 
 import java.time.LocalDate;
@@ -13,8 +11,7 @@ import java.time.LocalDate;
 public class Book {
 
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
