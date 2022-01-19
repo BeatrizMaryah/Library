@@ -41,8 +41,8 @@ public class LibraryController {
 		return libraryService.updateLibrary(newLibraryDto, id);
 	}
 	
-	@DeleteMapping
-	public void deletLibrary(@RequestBody LibraryDto libraryDto) {
-		libraryService.deletLibrary(libraryDto);
+	@DeleteMapping("/{id}")
+	public void deletLibrary(@PathVariable(value = "id") Long id) {
+		libraryService.deletLibrary(id);
 	}
 }

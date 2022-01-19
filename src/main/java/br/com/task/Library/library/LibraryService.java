@@ -51,8 +51,8 @@ public class LibraryService {
 		return new ResponseEntity<>(dto, HttpStatus.OK);
 	}
 	
-	public void deletLibrary(LibraryDto libraryDto) {
-		Library libraryDelet = libraryMapper.toEntity(libraryDto);
+	public void deletLibrary(Long id) {
+		Library libraryDelet = libraryRepository.getById(id);
 		libraryRepository.delete(libraryDelet);
 	}
 }

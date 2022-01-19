@@ -18,9 +18,14 @@ public class BookController {
         return bookService.insertBook(bookDto);
     }
 
+//    @GetMapping
+//    public ResponseEntity<List<BookDto>> all(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "author", required = false) String author) {
+//        return bookService.getBooks(name, author);
+//    }
+    
     @GetMapping
-    public ResponseEntity<List<BookDto>> all(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "author", required = false) String author) {
-        return bookService.getBooks(name, author);
+    public ResponseEntity<List<BookDto>> all() {
+    	return bookService.getBooks();
     }
 
     @GetMapping(value = "/{id}")
@@ -33,8 +38,8 @@ public class BookController {
         return bookService.updateBook(newbookDto, id);
     }
 
-    @DeleteMapping
-    public void deletBook(@RequestBody BookDto bookDto) {
-        bookService.deletBook(bookDto);
+    @DeleteMapping("/{id}")
+    public void deletBook(@PathVariable(value = "id") Long id) {
+        bookService.deletBook(id);
     }
 }

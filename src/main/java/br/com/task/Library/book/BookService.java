@@ -29,21 +29,26 @@ public class BookService {
             throw new NotFoundException();
         }
     }
-
-    public ResponseEntity<List<BookDto>> getBooks (String name, String author){
-        List<Book> books = bookRepository.findAll();
-
-        if(name == null && author == null){
-            return ResponseEntity.ok().body(bookMapper.toDto(books));
-        } else if (name != null && author != null) {
-            return getBooksSameAuthorAndName(books, name, author);
-        } else if (name != null && author == null) {
-            return getBooksSameName(books, name);
-        } else if (author != null && name == null) {
-            return getBooksSameAuthor(books, author);
-        }
-        return new ResponseEntity<>(bookMapper.toDto(books), HttpStatus.OK);
+    
+    public ResponseEntity<List<BookDto>> getBooks (){
+    	List<Book> books = bookRepository.findAll();
+    	return ResponseEntity.ok().body(bookMapper.toDto(books));
     }
+
+//    public ResponseEntity<List<BookDto>> getBooks (String name, String author){
+//        List<Book> books = bookRepository.findAll();
+//
+//        if(name == null && author == null){
+//            return ResponseEntity.ok().body(bookMapper.toDto(books));
+//        } else if (name != null && author != null) {
+//            return getBooksSameAuthorAndName(books, name, author);
+//        } else if (name != null && author == null) {
+//            return getBooksSameName(books, name);
+//        } else if (author != null && name == null) {
+//            return getBooksSameAuthor(books, author);
+//        }
+//        return new ResponseEntity<>(bookMapper.toDto(books), HttpStatus.OK);
+//    }
 
     public ResponseEntity<List<BookDto>> getBooksSameAuthorAndName(List<Book> books, String name, String author){
         List<Book> booksSameAuthorAndName = new ArrayList<>();
@@ -102,12 +107,8 @@ public class BookService {
         }
     }
 
-    public void deletBook(BookDto bookDto){
-        if(!bookDto.name.isEmpty() && !bookDto.author.isEmpty()){
-            Book bookDelet = bookMapper.toEntity(bookDto);
+    public void deletBook(Long id){
+            Book bookDelet = bookRepository.getById(id);
             bookRepository.delete(bookDelet);
-        } else{
-            throw new NotFoundException();
-        }
     }
 }
