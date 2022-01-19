@@ -19,15 +19,15 @@ public class BookService {
     private BookMapper bookMapper;
 
     public ResponseEntity<BookDto> insertBook(BookDto bookDto){
-        if(!bookDto.name.isEmpty() && !bookDto.author.isEmpty()){
+//        if(!bookDto.name.isEmpty() && !bookDto.author.isEmpty()){
             final Book bookEntity = bookMapper.toEntity(bookDto);
             final Book bookSaved = bookRepository.save(bookEntity);
             BookDto dto = bookMapper.toDto(bookSaved);
 
             return new ResponseEntity<>(dto, HttpStatus.CREATED);
-        } else {
-            throw new NotFoundException();
-        }
+//        } else {
+//            throw new NotFoundException();
+//        }
     }
     
     public ResponseEntity<List<BookDto>> getBooks (){

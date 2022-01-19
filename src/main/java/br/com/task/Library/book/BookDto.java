@@ -8,6 +8,6 @@ public class BookDto {
     public Float cost;
 //    public LocalDate yearEdition;
 //    public String publisher;
-    public Boolean isBorrowed;
+//    public Boolean isBorrowed;
     public Long idLibrary;
 }

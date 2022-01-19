@@ -23,7 +23,7 @@ public class BookMapper {
         dto.cost = book.getCost();
 //        dto.yearEdition = book.getYearEdition();
 //        dto.publisher = book.getPublisher();
-        dto.isBorrowed = book.getIsBorrowed();
+//        dto.isBorrowed = book.getIsBorrowed();
         dto.idLibrary = book.getLibrary().getId();
         return dto;
     }
@@ -44,7 +44,7 @@ public class BookMapper {
         book.setCost(dto.cost);
 //        book.setYearEdition(dto.yearEdition);
 //        book.setPublisher(dto.publisher);
-        book.setIsBorrowed(dto.isBorrowed);
+//        book.setIsBorrowed(dto.isBorrowed);
         
         Library library = libraryRepository.getById(dto.idLibrary);
         book.setLibrary(library);
