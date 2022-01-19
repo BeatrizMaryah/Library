@@ -31,10 +31,10 @@ public class LibraryController {
 		return libraryService.getLibraries();
 	}
 	
-//	@GetMapping(value = "/{id}")
-//	public ResponseEntity<LibraryDto> getById(@PathVariable(value = "id") Long id){
-//		return service.getLibraryById(id);
-//	}
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<LibraryDto> getById(@PathVariable(value = "id") Long id){
+		return libraryService.getLibraryById(id);
+	}
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<LibraryDto> updateLibrary(@RequestBody LibraryDto newLibraryDto, @PathVariable(value = "id") Long id){
