@@ -93,7 +93,7 @@ public class BookService {
     }
 
     public ResponseEntity<BookDto> updateBook(BookDto newbookDto, Long id){
-        if(!newbookDto.name.isEmpty() && !newbookDto.author.isEmpty()){
+//        if(!newbookDto.name.isEmpty() && !newbookDto.author.isEmpty()){
             Book book = bookRepository.getById(id);
             book.setName(newbookDto.name);
             book.setAuthor(newbookDto.author);
@@ -102,9 +102,9 @@ public class BookService {
             Book bookSaved = bookRepository.save(book);
             BookDto dto = bookMapper.toDto(bookSaved);
             return new ResponseEntity<>(dto, HttpStatus.OK);
-        } else{
-            throw new NotFoundException();
-        }
+//        } else{
+//            throw new NotFoundException();
+//        }
     }
 
     public void deletBook(Long id){
