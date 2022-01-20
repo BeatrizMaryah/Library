@@ -33,6 +33,12 @@ public class Library {
     @Column
     private String password;
     
+    @Column
+    private String adress;
+    
+    @Column
+    private Integer contact;
+    
     @JsonIgnore
 	@OneToMany(mappedBy = "library")
 	private List<Book> books = new ArrayList<Book>();
@@ -43,11 +49,13 @@ public class Library {
 
     public Library() {}
     
-	public Library(Long id, String name, String username, String password) {
+	public Library(Long id, String name, String username, String password, String adress, int contact) {
 		this.setId(id);
 		this.setName(name);
 		this.setUsername(username);
 		this.setPassword(password);
+		this.setAdress(adress);
+		this.setContact(contact);
 	}
 	
 	public Library(String name) {
@@ -87,5 +95,21 @@ public class Library {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getAdress() {
+		return adress;
+	}
+
+	public void setAdress(String adress) {
+		this.adress = adress;
+	}
+
+	public int getContact() {
+		return contact;
+	}
+
+	public void setContact(int contact) {
+		this.contact = contact;
 	}
 }

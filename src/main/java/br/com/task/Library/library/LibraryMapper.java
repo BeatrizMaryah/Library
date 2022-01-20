@@ -13,8 +13,8 @@ public class LibraryMapper {
 		
 		dto.id = library.getId();
 		dto.name = library.getName();
-		dto.username = library.getUsername();
-		dto.password = library.getPassword();
+		dto.adress = library.getAdress();
+		dto.contact = library.getContact();
 		
 		return dto;
 	}
@@ -31,8 +31,8 @@ public class LibraryMapper {
 		final Library library = new Library();
 		library.setId(dto.id);
 		library.setName(dto.name);
-		library.setUsername(dto.username);
-		library.setPassword(dto.password);
+		library.setAdress(dto.adress);
+		library.setContact(dto.contact);
 		
 		return library;
 	}

@@ -43,8 +43,8 @@ public class LibraryService {
 	public ResponseEntity<LibraryDto> updateLibrary(LibraryDto newLibraryDto, Long id){
 		Library library = libraryRepository.getById(id);
 		library.setName(newLibraryDto.name);
-		library.setUsername(newLibraryDto.username);
-		library.setPassword(newLibraryDto.password);
+		library.setAdress(newLibraryDto.adress);
+		library.setContact(newLibraryDto.contact);
 		
 		Library librarySaved = libraryRepository.save(library);
 		LibraryDto dto = libraryMapper.toDto(librarySaved);
@@ -54,5 +54,16 @@ public class LibraryService {
 	public void deletLibrary(Long id) {
 		Library libraryDelet = libraryRepository.getById(id);
 		libraryRepository.delete(libraryDelet);
+	}
+	
+	public ResponseEntity<LibraryDto> login (String username, String password){
+		Library library = libraryRepository.findLibraryByUsername(username);
+		
+		if(library.getPassword().equals(password)) {
+			LibraryDto dto = libraryMapper.toDto(library);
+			return new ResponseEntity<>(dto, HttpStatus.OK);
+		} else {
+			throw new NotFoundException();
+		}
 	}
 }

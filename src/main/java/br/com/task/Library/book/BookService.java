@@ -96,14 +96,14 @@ public class BookService {
 //        if(!newbookDto.name.isEmpty() && !newbookDto.author.isEmpty()){
             Book book = bookRepository.getById(id);
             book.setName(newbookDto.name);
-            book.setDescription(newbookDto.description);
+            book.setDescription(newbookDto.description);;
             book.setAuthor(newbookDto.author);
             book.setCost(newbookDto.cost);
 
             Book bookSaved = bookRepository.save(book);
             BookDto dto = bookMapper.toDto(bookSaved);
             return new ResponseEntity<>(dto, HttpStatus.OK);
-//        } else{
+//        } else{ 
 //            throw new NotFoundException();
 //        }
     }
