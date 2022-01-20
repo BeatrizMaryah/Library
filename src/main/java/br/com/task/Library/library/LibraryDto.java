@@ -4,6 +4,6 @@ public class LibraryDto {
 
 	public Long id;
 	public String name;
-	public String username;
-	public String password;
+	public String adress;
+	public Integer contact;
 }

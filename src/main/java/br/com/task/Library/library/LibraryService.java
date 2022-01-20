@@ -43,8 +43,8 @@ public class LibraryService {
 	public ResponseEntity<LibraryDto> updateLibrary(LibraryDto newLibraryDto, Long id){
 		Library library = libraryRepository.getById(id);
 		library.setName(newLibraryDto.name);
-		library.setUsername(newLibraryDto.username);
-		library.setPassword(newLibraryDto.password);
+		library.setAdress(newLibraryDto.adress);
+		library.setContact(newLibraryDto.contact);
 		
 		Library librarySaved = libraryRepository.save(library);
 		LibraryDto dto = libraryMapper.toDto(librarySaved);
