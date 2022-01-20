@@ -96,6 +96,7 @@ public class BookService {
 //        if(!newbookDto.name.isEmpty() && !newbookDto.author.isEmpty()){
             Book book = bookRepository.getById(id);
             book.setName(newbookDto.name);
+            book.setDescription(newbookDto.description);
             book.setAuthor(newbookDto.author);
             book.setCost(newbookDto.cost);
 
