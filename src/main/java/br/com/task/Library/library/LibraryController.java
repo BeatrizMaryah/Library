@@ -51,9 +51,4 @@ public class LibraryController {
 	public void deletLibrary(@PathVariable(value = "id") Long id) {
 		libraryService.deletLibrary(id);
 	}
-	
-	@RequestMapping("/login")
-    public ResponseEntity<LibraryDto> login(@PathVariable(value = "username") String username, @PathVariable(value = "password") String password) {
-		return libraryService.login(username, password);
-    }
 }
