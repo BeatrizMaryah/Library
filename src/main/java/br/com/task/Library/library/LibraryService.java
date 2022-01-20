@@ -55,4 +55,15 @@ public class LibraryService {
 		Library libraryDelet = libraryRepository.getById(id);
 		libraryRepository.delete(libraryDelet);
 	}
+	
+	public ResponseEntity<LibraryDto> login (String username, String password){
+		Library library = libraryRepository.findLibraryByUsername(username);
+		
+		if(library.getPassword().equals(password)) {
+			LibraryDto dto = libraryMapper.toDto(library);
+			return new ResponseEntity<>(dto, HttpStatus.OK);
+		} else {
+			throw new NotFoundException();
+		}
+	}
 }
